@@ -1,3 +1,4 @@
+
 $( document ).ready(function() {
     $("#submit-button").click(
     function(){
@@ -6,15 +7,17 @@ $( document ).ready(function() {
     }
   );
 });
- 
+
+//Sending form data function
 function sendAjaxForm(url) {
     $.ajax({
         url:    "http://codeit.pro/codeitCandidates/serverFrontendTest/user/registration", //url страницы (action_ajax_form.php)
-        type:     "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $("#register-form").serialize(),  // Сеарилизуем объект
-        success: function(response) { //Данные отправлены успешно
+        type:     "POST", //sending method
+        dataType: "html", //data format
+        data: $("#register-form").serialize(),  // Form data serializing
+        success: function(response) {
           result = $.parseJSON(response);
+          //Server answer processing
           if(result.status == "OK"){
             alert(result.message);
             document.location.href = "company.html";
@@ -26,13 +29,13 @@ function sendAjaxForm(url) {
             alert(result.message);
           }
         },
-        error: function(response) { // Данные не отправлены
+        error: function(response) { 
           alert(result.message);
         }
   });
 }
 
-
+//function working with "Companies" server
   window.onload = function() {
     include("https://www.gstatic.com/charts/loader.js");
 
@@ -46,7 +49,9 @@ function sendAjaxForm(url) {
         dataType: "html", //формат данных
         success: function(response) { //Данные отправлены успешно
           result = $.parseJSON(response);
+          //count amount of companies
           companiesAmount = result.list.length; 
+          //put result into block
           document.getElementById("totalCompaniesAmount").innerHTML= companiesAmount;
           document.getElementById('listOfCompaniesSelect').onchange=function () {
             document.getElementById('block3').style.display="inline-block";
@@ -54,6 +59,8 @@ function sendAjaxForm(url) {
             while (myNode.firstChild) {
               myNode.removeChild(myNode.firstChild);
             }
+
+            // count partners amount of selected company and create partner blocks in listOfPartnersSelect block
             var partnersAmount = result.list[this.value].partners.length;
             for(i=0;i<=partnersAmount;i++){
               var div = document.createElement('div');
@@ -61,7 +68,7 @@ function sendAjaxForm(url) {
               document.getElementById('listOfPartnersSelect').appendChild(div);
             }
           };
-
+          //companies list
           for(i=0;i<=companiesAmount;i++) {
             $('#listOfCompaniesSelect').append($('<option>', {
               value: i,
@@ -77,7 +84,7 @@ function sendAjaxForm(url) {
 
 
         },
-        error: function(response) { // Данные не отправлены
+        error: function(response) {
           result = $.parseJSON(response);
           alert("Fail");
         }
@@ -85,20 +92,14 @@ function sendAjaxForm(url) {
 }
 
 
-function include(url) {
-        var script = document.createElement('script');
-        script.src = url;
-        document.getElementsByTagName('head')[0].appendChild(script);
-    }
-
-
+// Google charts function
 function drawChart() {
       var jsonData = $.ajax({
-        url:    "http://codeit.pro/codeitCandidates/serverFrontendTest/company/getList", //url страницы (action_ajax_form.php)
-        type:     "POST", //метод отправки
-        dataType: "html", //формат данных
+        url:    "http://codeit.pro/codeitCandidates/serverFrontendTest/company/getList", 
+        type:     "POST", 
+        dataType: "html",
           async: false,
-          success: function(response) { //Данные отправлены успешно
+          success: function(response) { 
           result = $.parseJSON(response);
           
           }
@@ -106,7 +107,6 @@ function drawChart() {
       var data = new google.visualization.DataTable(jsonData);
       data.addColumn('string', 'Contry');
       data.addColumn('number', 'Amount');
-      //alert(result.list[1].partners.length);
       var contries = {};
       for (var i = 0; i < result.list.length; ++i) {
         var a = result.list[i].location.name;
@@ -124,16 +124,15 @@ function drawChart() {
 
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.PieChart(document.getElementById('diagramm'));
-
+        // Function opens companies list of selected country on diagramm
         function selectHandler() {
           var selectedItem = chart.getSelection()[0];
           if (selectedItem) {
             var topping = data.getValue(selectedItem.row, 0);
-            //alert('The user selected ' + topping);
             document.getElementById('diagramm').style.display="none";
             document.getElementById('listOfContries').style.display="inline-block";
             document.getElementById('backButton').style.display="inline-block";
-            document.getElementById('backButton').onclick = function() { // перезапишет существующий обработчик
+            document.getElementById('backButton').onclick = function() { 
               document.getElementById('listOfContries').innerHTML="";
               chart.draw(data, options);
               document.getElementById('diagramm').style.display="inline-block";
