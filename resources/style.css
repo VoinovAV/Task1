@@ -1,0 +1,305 @@
+/*index.html*/
+@font-face {
+    font-family: Proxima;
+    src: url(../fonts/ProximaNova-Light.otf); 
+   }
+ @font-face {
+    font-family: ProximaBold;
+    src: url(../fonts/ProximaNova-Bold.otf); 
+   }
+ body{
+    font-family: Proxima;
+ }
+ h2{
+ 	font-size:1.2em;
+ 	font-family: Proxima;
+ 	margin-top:5px;
+ 	margin-bottom:5px;
+ }
+#register-form {
+	display:block;
+	text-align: left;
+	border-top: 1px solid #cccccc;
+	border-radius: 5px;
+	background:white;
+	
+}
+#register-form select{
+	height: 30px;
+	padding-left:10px; 
+	width: 100%;
+	display: inline-block;
+	border: none;
+    color: #838692;
+}
+#register-form input{
+	display: block;
+	padding-left:10px; 
+	width:217px;
+	height: 28px;
+	border:none;
+    color: #838692;
+}
+
+#submit-button {
+ 	font-family: Proxima;
+ 	font-size:1em;
+ 	font-weight: bold;
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	background: #eeeeee;
+	width:100px;
+	height:30px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+}
+#submit-button:hover {
+	background: white;
+}
+#register-block{
+	display: block;
+	text-align: center;
+	margin-right:auto;
+	margin-left:auto;
+	width: 300px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	background:#eeeeee;
+	margin-top: 50px;
+}
+
+#register-block .line{
+	display: block;
+	height: 30px;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	padding: 0px;
+	margin:0px 20px; 
+}
+#register-block .line:first-child{
+	margin-top:20px; 
+}
+
+#register-block .line:nth-child(11){
+	border: none;
+}
+
+#register-block .line:last-child{
+	border: none;
+	position: relative;
+	top:-15px;
+}
+.icons {
+	position: relative;
+	top:5px;
+	left:5px;
+	text-align: center;
+	vertical-align: center;
+}
+.icons-background {
+	display: inline-block;
+	width:30px;
+	height:30px;
+	background: #eeeeee;
+	border-right: 1px solid #cccccc;
+	float: left;
+}
+
+.line #checkbox{
+	position:relative;
+	margin-right:10px;
+	top:-7px;
+	float: left;
+	width: 15px;
+    color: white;
+
+}
+/*company.html*/
+
+.content {
+	display:block;
+	text-align: center;
+	border-top: 1px solid #cccccc;
+	border-radius: 5px;
+	padding: 20px; 
+	background:white;
+	
+}
+
+.headerBlock{
+	height: 340px;
+	vertical-align: top;
+	display: block;
+	text-align: center;
+	margin-right:auto;
+	margin-left:auto;
+	display: inline-block;
+	width: 300px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	background:#eeeeee;
+	margin-top: 50px;
+}
+
+.headerDoubleBlock{
+	height: 340px;
+	clear: both;
+	display: block;
+	vertical-align:top;
+	text-align: center;
+	margin-right:auto;
+	margin-left:auto;
+	display: inline-block;
+	width: 605px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	background:#eeeeee;
+	margin-top: 5px;
+}
+
+#circle{
+
+	border: 5px solid #cccccc;
+	margin-right:auto;
+	margin-left:auto;
+	border-radius: 50%;
+	padding: 30% 0; 
+	text-align: center;
+}
+
+#totalCompaniesAmount{
+	font-size: 5em;
+	font-weight: bold;
+	text-align: center;
+	display: inline-block;
+	margin-right: auto;
+	margin-left: auto;
+	border: none;
+}
+#listOfCompaniesSelect {
+    font-family: Proxima;
+    font-size: 1em;
+	display: inline-block;
+	width: 90%;
+	height: 265px;
+
+}
+
+#listOfPartners {
+    font-family: Proxima;
+    font-size: 1em;
+	display: inline-block;
+	width: 565px;
+	height: 265px;
+}
+
+#listOfPartnersSelect{
+    font-family: Proxima;
+    font-size: 1em;
+	display: inline-block;
+	width: 90%;
+	height: 265px;
+  	border-radius: 10px;
+	border: 1px solid #cccccc;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+}
+.partner {
+	float: left;
+    display: inline-block;
+    vertical-align: top;
+    width: 60px;
+    height:245px;
+  	border-radius: 10px;
+	border: 1px solid #cccccc;
+
+}
+.vertical{
+	position: relative;
+	bottom: -150px;
+	text-align: center;
+	vertical-align: bottom;
+   	font-family: Proxima;
+  	font-size: 1.8em;
+  	-webkit-transform: rotate(-90deg); 
+  	-moz-transform: rotate(-90deg);
+  	-ms-transform: rotate(-90deg);
+  	-o-transform: rotate(-90deg);
+  	transform: rotate(-90deg);
+} 
+
+.value {
+   	font-family: Proxima;
+  	font-size: 1.2em;
+	position: relative;
+	top: -80px;
+}
+
+#mainBlock{
+	width: 610px;
+	text-align:center;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0px;
+}
+
+#block3{
+	display: none;
+}
+
+.container {
+    width: 260px;
+    height: 260px;
+    overflow: hidden;
+	border: 1px solid #cccccc;
+    border-radius: 50%;
+    position: relative;
+}
+
+.container:after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: #fff;
+  border-radius: 50%;
+  top: 25%;
+  left: 25%;
+}
+
+.sector {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform-origin: left bottom;
+    background: #000;
+}
+
+#diagramm {
+	position: relative;
+	height: 260px;
+	left: -20px;
+	top:-15px;
+}
+
+#listOfContries {
+    font-family: Proxima;
+    font-size: 1em;
+	display: inline-block;
+	width: 90%;
+	height: 265px;
+	display: none;
+}
+
+#backButton {
+	display: none;
+	float: right;
+	position: relative;
+	top: -27px;
+
+}
